@@ -16,11 +16,11 @@ class JayI:
              ____| |   |        | | _____  |        | | |   | | |
             |\ ____|   |        | | |   |  |___     | | |   | | |
             | |        |        | | |___|  |___\    | | |___| | |
-             \|________|         \|____________|     \|_______| |
+             \|________|         \|____________|     \|/_____\| |
                                                             | | |
                                                             | | |
                                                     ________| | |
-                                                   | \__spud__| |
+                                                   | \_______\| |
                                                     \|__________|
          
                 Created and developed by readingschool-cs-club
@@ -67,7 +67,9 @@ class JayI:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
                     print("I am " + str(JayI().birthday()) + " days old")
-            elif trigger.lower().rstrip(" ") == "":
+            elif trigger.lower() == "where were you born?":
+                print("In a computer with billions of transistors!")
+            elif trigger.lower().strip() == "":
                 pass
             else:
                 try:
