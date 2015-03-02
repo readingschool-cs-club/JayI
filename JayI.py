@@ -98,4 +98,3 @@ Jay = JayI()
 
 Jay.read_file()
 Jay.respond()
-# I wonder what line I'm on...
