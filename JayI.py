@@ -20,7 +20,7 @@ class JayI:
                                                             | | |
                                                             | | |
                                                     ________| | |
-                                                   | \__spud__| |
+                                                   | \____| |
                                                     \|__________|
          
                 Created and developed by readingschool-cs-club
