@@ -1,3 +1,8 @@
+#!/usr/bin/env python3
+#
+# JayI main executable.
+#
+
 from datetime import *
 
 class JayI:
