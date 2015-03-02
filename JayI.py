@@ -67,6 +67,8 @@ class JayI:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
                     print("I am " + str(JayI().birthday()) + " days old")
+            elif trigger.lower().rstrip(" ") == "":
+                pass
             else:
                 try:
                     print(self.map[trigger])
