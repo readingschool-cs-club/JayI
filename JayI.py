@@ -18,7 +18,6 @@ class JayI:
             file1.close()
 
 
-    # I wonder what line I'm on...
     def read_file(self):
         for line in open(self.filename, "r"):
             parts = line.split(":", 1)
@@ -66,5 +65,5 @@ class JayI:
 Jay = JayI()
 
 Jay.read_file()
-# I wonder what line I'm on...
 Jay.respond()
+# I wonder what line I'm on...
