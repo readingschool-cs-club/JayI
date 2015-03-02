@@ -5,16 +5,3 @@ JayI was created and developed by readingschool-cs-club.
 
 Please read the wiki for more information.
 Anyone who uses the programme must read and accept the terms and conditions.
-
-![](http://upload.wikimedia.org/wikipedia/commons/a/ab/Patates.jpg)
-
-
-
-
-
-
-
-
-
-
-
