@@ -11,7 +11,6 @@ class JayI:
         self.filename = "responses.txt"
         self.map = {}
         print("""
-
             _________________
            |\________________\.
            \|________________|   __________          ___     ___
@@ -35,8 +34,8 @@ class JayI:
             file1.close()
         except:
             file1 = open(self.filename, "w+")
-            file1.write("Hello:Hi\n")
-            file1.write("Hi:Hello\n")
+            file1.write("hello:hi\n")
+            file1.write("hi:hello\n")
             file1.close()
 
 
@@ -57,22 +56,23 @@ class JayI:
         file = open(self.filename, "a+")
         while True:
             trigger = input()
-            if trigger.lower() == "bye":
+            tigger = trigger.lower()
+            if trigger == "bye":
                 print("Bye, see you soon !")
                 break
-            elif trigger.lower() == "delete all":
+            elif trigger == "delete all":
                 file.close()
                 file_stuff = open(self.filename, "w")
                 file_stuff.write("")
                 file_stuff.close()
-            elif trigger.lower() == "how old are you ?":
+            elif trigger== "how old are you ?":
                 if JayI().birthday() == 1:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
                     print("I am " + str(JayI().birthday()) + " days old")
-            elif trigger.lower() == "where were you born?":
+            elif trigger == "where were you born?":
                 print("In a computer with billions of transistors!")
-            elif trigger.lower().strip() == "":
+            elif trigger.strip() == "":
                 pass
                 #blank space doesn't ask for response
             else:
