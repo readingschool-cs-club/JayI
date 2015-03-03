@@ -6,8 +6,7 @@
 from datetime import *
 
 class JayI:
-
-    # the constructor
+  
     def __init__(self):
         self.filename = "responses.txt"
         self.map = {}
@@ -74,6 +73,7 @@ class JayI:
                 print("In a computer with billions of transistors!")
             elif trigger.lower().strip() == "":
                 pass
+                #blank space doesn't ask for response
             else:
                 try:
                     print(self.map[trigger])
