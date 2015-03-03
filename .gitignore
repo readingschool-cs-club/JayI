@@ -54,3 +54,6 @@ docs/_build/
 target/
 
 .c9
+
+# responses.txt should be user-specific
+responses.txt

@@ -6,13 +6,11 @@
 from datetime import *
 
 class JayI:
-
-    # the constructor
+  
     def __init__(self):
         self.filename = "responses.txt"
         self.map = {}
         print("""
-
             _________________
            |\________________\.
            \|________________|   __________          ___     ___
@@ -73,6 +71,11 @@ class JayI:
                     print("I am " + str(JayI().birthday()) + " days old")
             elif trigger.lower().strip() == "":
                 pass
+            elif trigger.lower() == "where were you born?":
+                print("In a computer with billions of transistors!")
+            elif trigger.lower().strip() == "":
+                pass
+                #blank space doesn't ask for response
             else:
                 try:
                     print(self.map[trigger])
