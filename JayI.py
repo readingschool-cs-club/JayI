@@ -12,31 +12,18 @@ class JayI:
         self.filename = "responses.txt"
         self.map = {}
         print("""
-
-            _________________         _______________
-           |\____|\____|\____|\      |\__|\_____|\__|\
-           \|____\|____\|____\|      \|  \|_____||  \|
-                 ||    ||            ||___|_____\|__||
-                 ||    ||            ||  \|_____\|  ||
-                 ||    ||            ||  ||     \|  ||
-                 ||    ||            ||  ||     ||  ||
-          _______||____||            ||  ||     ||  ||
-          |\_____||____||            ||  ||     ||  ||
-          \|_____\|____\|            \|__\|     \|__\|
-                
-        
             _________________
            |\________________\.
            \|________________|   __________          ___     ___
                  | |   |        |\_________\        |\__\   |\__\.
              ____| |   |        | | _____  |        | | |   | | |
-            |\ ____|   |        | | |   |  |___     | | |   | | |
+            |\ ____|   |        | | |   |  |___     | | |___| | |
             | |        |        | | |___|  |___\    | | |___| | |
              \|________|         \|____________|     \|_______| |
                                                             | | |
                                                             | | |
                                                     ________| | |
-                                                   | \____| |
+                                                   | \_______\| |
                                                     \|__________|
          
                 Created and developed by readingschool-cs-club
@@ -83,7 +70,9 @@ class JayI:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
                     print("I am " + str(JayI().birthday()) + " days old")
-            elif trigger.lower().rstrip(" ") == "":
+            elif trigger.lower() == "where were you born?":
+                print("In a computer with billions of transistors!")
+            elif trigger.lower().strip() == "":
                 pass
             else:
                 try:
