@@ -1,5 +1,9 @@
-from datetime import *
+#!/usr/bin/env python3
+#
+# JayI main executable.
+#
 
+from datetime import *
 
 class JayI:
 
@@ -7,6 +11,25 @@ class JayI:
     def __init__(self):
         self.filename = "responses.txt"
         self.map = {}
+        print("""
+
+            _________________
+           |\________________\.
+           \|________________|   __________          ___     ___
+                 | |   |        |\_________\        |\__\   |\__\.
+             ____| |   |        | | _____  |        | | |   | | |
+            |\ ____|   |        | | |   |  |___     | | |___| | |
+            | |        |        | | |___|  |___\    | | |___| | |
+             \|________|         \|____________|     \|_______| |
+                                                            | | |
+                                                            | | |
+                                                    ________| | |
+                                                   | \_______\| |
+                                                    \|__________|
+         
+                Created and developed by readingschool-cs-club
+                         Bringing Computers to Life
+         """)
 
         try:
             file1 = open(self.filename, "r")
@@ -48,6 +71,8 @@ class JayI:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
                     print("I am " + str(JayI().birthday()) + " days old")
+            elif trigger.lower().strip() == "":
+                pass
             else:
                 try:
                     print(self.map[trigger])
@@ -66,4 +91,3 @@ Jay = JayI()
 
 Jay.read_file()
 Jay.respond()
-# I wonder what line I'm on...
