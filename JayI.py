@@ -83,7 +83,8 @@ class JayI:
                     print(self.map[trigger])
                 except:
                     inp = input("Sorry, that is not in my database. Suggest me a good response: ")
-                    if inp == "No":
+                    inp = inp.lower()
+                    if inp == "no":
                         print("Alright, then")
                     else:
                         self.map[trigger] = inp
