@@ -69,15 +69,14 @@ class JayI:
                 file_stuff.write("")
                 file_stuff.close()
             elif trigger== "how old are you?":
-                if JayI().birthday() == 1:
-                    print("I am " + str(JayI().birthday()) + " day old")
+                if self.birthday() == 1:
+                    print("I am " + str(self.birthday()) + " day old")
                 else:
-                    print("I am " + str(JayI().birthday()) + " days old")
+                    print("I am " + str(self.birthday()) + " days old")
             elif trigger == "where were you born?":
                 print("In a computer with billions of transistors!")
             elif trigger.strip() == "":
                 pass
-                
             else:
                 try:
                     print(self.map[trigger])
