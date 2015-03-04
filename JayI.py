@@ -3,7 +3,6 @@
 # JayI main executable.
 #
 
-
 from datetime import *
 
 class JayI:
