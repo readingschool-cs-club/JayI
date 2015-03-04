@@ -13,9 +13,9 @@ class JayI:
         self.map = {}
         print("""
             _________________
-           |\________________\
+           |\________________\.
            \|________________|   __________          ___     ___
-                 | |   |        |\_________\        |\__\   |\__\
+                 | |   |        |\_________\        |\__\   |\__\.
              ____| |   |        | | _____  |        | | |   | | |
             |\ ____|   |        | | |   |  |___     | | |___| | |
             | |        |        | | |___|  |___\    | | |___| | |
@@ -33,7 +33,7 @@ class JayI:
         try:
             file1 = open(self.filename, "r")
             file1.close()
-        except IOError:
+        except IOException:
             file1 = open(self.filename, "w+")
             file1.write("hello:hi\n")
             file1.write("hi:hello\n")
@@ -44,6 +44,7 @@ class JayI:
         for line in open(self.filename, "r"):
             parts = line.split(":", 1)
             self.map[parts[0]] = parts[1].rstrip("\n")
+
     
     # find out my birthday
     def birthday(self):
@@ -66,20 +67,16 @@ class JayI:
                 file_stuff = open(self.filename, "w")
                 file_stuff.write("")
                 file_stuff.close()
-            elif trigger== "how old are you ?":
+            elif trigger== "how old are you?":
                 if JayI().birthday() == 1:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
                     print("I am " + str(JayI().birthday()) + " days old")
-<<<<<<< HEAD
-            elif trigger.lower().strip() == "":
-=======
             elif trigger == "where were you born?":
                 print("In a computer with billions of transistors!")
             elif trigger.strip() == "":
->>>>>>> 5c10e143ade3a5bd850c52a1386d046bcf569861
                 pass
-                #blank space doesn't ask for response
+                
             else:
                 try:
                     print(self.map[trigger])
