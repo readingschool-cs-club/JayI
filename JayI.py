@@ -3,6 +3,7 @@
 # JayI main executable.
 #
 
+
 from datetime import *
 
 class JayI:
@@ -32,10 +33,10 @@ class JayI:
         try:
             file1 = open(self.filename, "r")
             file1.close()
-        except:
+        except IOException:
             file1 = open(self.filename, "w+")
-            file1.write("Hello:Hi\n")
-            file1.write("Hi:Hello\n")
+            file1.write("hello:hi\n")
+            file1.write("hi:hello\n")
             file1.close()
 
 
@@ -56,20 +57,27 @@ class JayI:
         file = open(self.filename, "a+")
         while True:
             trigger = input()
-            if trigger.lower() == "bye":
+            tigger = trigger.lower()
+            if trigger == "bye":
                 print("Bye, see you soon !")
                 break
-            elif trigger.lower() == "delete all":
+            elif trigger == "delete all":
                 file.close()
                 file_stuff = open(self.filename, "w")
                 file_stuff.write("")
                 file_stuff.close()
-            elif trigger.lower() == "how old are you ?":
+            elif trigger== "how old are you ?":
                 if JayI().birthday() == 1:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
                     print("I am " + str(JayI().birthday()) + " days old")
+<<<<<<< HEAD
             elif trigger.lower().strip() == "":
+=======
+            elif trigger == "where were you born?":
+                print("In a computer with billions of transistors!")
+            elif trigger.strip() == "":
+>>>>>>> 5c10e143ade3a5bd850c52a1386d046bcf569861
                 pass
                 #blank space doesn't ask for response
             else:
