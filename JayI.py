@@ -44,7 +44,7 @@ class JayI:
         for line in open(self.filename, "r"):
             parts = line.split(":", 1)
             self.map[parts[0]] = parts[1].rstrip("\n")
-
+    
     # find out my birthday
     def birthday(self):
         birthday = datetime.strptime("2015-02-13", "%Y-%m-%d")
