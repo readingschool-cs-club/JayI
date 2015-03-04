@@ -85,7 +85,7 @@ class JayI:
                     inp = input("Sorry, that is not in my database. Suggest me a good response: ")
                     inp = inp.lower()
                     if inp == "no":
-                        print("Alright, then")
+                        pass
                     else:
                         self.map[trigger] = inp
                         file.write(trigger + ":" + inp + "\n")
