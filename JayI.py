@@ -33,7 +33,7 @@ class JayI:
         try:
             file1 = open(self.filename, "r")
             file1.close()
-        except IOException:
+        except IOError:
             file1 = open(self.filename, "w+")
             file1.write("hello:hi\n")
             file1.write("hi:hello\n")
