@@ -13,9 +13,9 @@ class JayI:
         self.map = {}
         print("""
             _________________
-           |\________________\.
+           |\________________\
            \|________________|   __________          ___     ___
-                 | |   |        |\_________\        |\__\   |\__\.
+                 | |   |        |\_________\        |\__\   |\__\
              ____| |   |        | | _____  |        | | |   | | |
             |\ ____|   |        | | |   |  |___     | | |___| | |
             | |        |        | | |___|  |___\    | | |___| | |
@@ -71,9 +71,13 @@ class JayI:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
                     print("I am " + str(JayI().birthday()) + " days old")
+<<<<<<< HEAD
+            elif trigger.lower().strip() == "":
+=======
             elif trigger == "where were you born?":
                 print("In a computer with billions of transistors!")
             elif trigger.strip() == "":
+>>>>>>> 5c10e143ade3a5bd850c52a1386d046bcf569861
                 pass
                 #blank space doesn't ask for response
             else:
