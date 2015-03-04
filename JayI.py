@@ -3,6 +3,7 @@
 # JayI main executable.
 #
 
+
 from datetime import *
 
 class JayI:
@@ -11,14 +12,23 @@ class JayI:
         self.filename = "responses.txt"
         self.map = {}
         print("""
+<<<<<<< HEAD
             _________________
            |\________________\
            \|________________|   __________          ___     ___
                  | |   |        |\_________\        |\__\   |\__\
              ____| |   |        | | _____  |        | | |   | | |
+=======
+            _________________                                        
+           |\________________\                                      
+           \|_______    _____|   __________          ___     ___
+                 | |   |        |\_________\        |\__\   |\__\         
+             ____| |   |        | | _____  |        | | |   | | |          
+>>>>>>> d6cf2f70b5108d47674a985149fac8d8f79108bc
             |\ ____|   |        | | |   |  |___     | | |___| | |
             | |        |        | | |___|  |___\    | | |___| | |
              \|________|         \|____________|     \|_______| |
+                                                            | | |  
                                                             | | |
                                                             | | |
                                                     ________| | |
@@ -32,7 +42,7 @@ class JayI:
         try:
             file1 = open(self.filename, "r")
             file1.close()
-        except:
+        except IOError:
             file1 = open(self.filename, "w+")
             file1.write("hello:hi\n")
             file1.write("hi:hello\n")
@@ -44,6 +54,7 @@ class JayI:
             parts = line.split(":", 1)
             self.map[parts[0]] = parts[1].rstrip("\n")
 
+    
     # find out my birthday
     def birthday(self):
         birthday = datetime.strptime("2015-02-13", "%Y-%m-%d")
@@ -65,7 +76,7 @@ class JayI:
                 file_stuff = open(self.filename, "w")
                 file_stuff.write("")
                 file_stuff.close()
-            elif trigger== "how old are you ?":
+            elif trigger== "how old are you?":
                 if JayI().birthday() == 1:
                     print("I am " + str(JayI().birthday()) + " day old")
                 else:
@@ -74,7 +85,7 @@ class JayI:
                 print("In a computer with billions of transistors!")
             elif trigger.strip() == "":
                 pass
-                #blank space doesn't ask for response
+                
             else:
                 try:
                     print(self.map[trigger])
