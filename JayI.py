@@ -59,7 +59,7 @@ class JayI:
         file = open(self.filename, "a+")
         while True:
             trigger = input()
-            tigger = trigger.lower()
+            trigger = trigger.lower()
             if trigger == "bye":
                 print("Bye, see you soon !")
                 break
