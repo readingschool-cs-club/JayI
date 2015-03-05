@@ -35,8 +35,8 @@ class JayI:
             file1.close()
         except IOError:
             file1 = open(self.filename, "w+")
-            file1.write("hello:hi\n")
-            file1.write("hi:hello\n")
+            file1.write("hello:Hi\n")
+            file1.write("hi:Hello\n")
             file1.close()
 
 
@@ -81,7 +81,7 @@ class JayI:
                     print(self.map[trigger])
                 except:
                     inp = input("Sorry, that is not in my database. Suggest me a good response: ")
-                    if inp.lower() == "No":
+                    if inp.lower() == "no":
                         pass
                     else:
                         self.map[trigger] = inp
