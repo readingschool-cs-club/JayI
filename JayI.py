@@ -67,7 +67,7 @@ class JayI:
                 file_stuff = open(self.filename, "w")
                 file_stuff.write("")
                 file_stuff.close()
-            elif trigger== "how old are you?":
+            elif trigger == "how old are you?":
                 if self.birthday() == 1:
                     print("I am " + str(self.birthday()) + " day old")
                 else:
