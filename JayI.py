@@ -90,4 +90,6 @@ class JayI:
 
 
 
-Jay = JayI().read_file().respond()
+Jay = JayI()
+Jay.read_file()
+Jay.respond()
