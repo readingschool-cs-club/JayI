@@ -97,4 +97,4 @@ print(r"""
 Jay = JayI()
 print("Hi there. You can talk to me.")
 while True:
-    print(Jay.respond(input()) or "")
+    print(Jay.respond(input("> ")) or "")
