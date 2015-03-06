@@ -1,4 +1,0 @@
-ls:ls
-ls -ltr:ls
-how:how
-no:a
