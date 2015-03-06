@@ -4,12 +4,14 @@
 #
 
 from datetime import datetime
+from sys import exit
 
 class JayI:
   
     def __init__(self):
         self.filename = "responses.txt"
         self.map = {}
+        self.learning = None
         try:
             file1 = open(self.filename, "r")
             file1.close()
@@ -34,42 +36,42 @@ class JayI:
         return abs(age)
 
     # the whole loop!
-    def respond(self):
-        print("Hi there. You can talk to me.")
+    def respond(self, trigger):
         file = open(self.filename, "a+")
-        while True:
-            trigger = input()
-            trigger = trigger.lower()
-            if trigger == "bye":
-                print("Bye, see you soon !")
-                break
-            elif trigger == "delete all":
-                file.close()
-                file_stuff = open(self.filename, "w")
-                file_stuff.write("")
-                file_stuff.close()
-            elif trigger == "how old are you?":
-                birthday = self.birthday()
-                if birthday == 1:
-                    print("I am 1 day old")
-                else:
-                    print("I am " + birthday() + " days old")
-            elif trigger == "where were you born?":
-                print("In a computer with billions of transistors!")
-            elif trigger.strip() == "":
-                pass
-            else:
-                try:
-                    print(self.map[trigger])
-                except:
-                    inp = input("Sorry, that is not in my database. Suggest me a good response: ")
-                    if inp.lower() == "no":
-                        pass
-                    else:
-                        self.map[trigger] = inp
-                        file.write(trigger + ":" + inp + "\n")
-        file.close()
 
+        if self.learning:
+            if not trigger.lower() == "no":
+                self.map[self.learning] = trigger
+                file.write(self.learning + ":" + trigger + "\n")
+            self.learning = None
+            return
+
+        trigger = trigger.lower()
+        if trigger == "bye":
+            print("Bye, see you soon!")
+            exit()
+        elif trigger == "delete all":
+            file.close()
+            file_stuff = open(self.filename, "w")
+            file_stuff.write("")
+            file_stuff.close()
+        elif trigger == "how old are you?":
+            birthday = self.birthday()
+            if birthday == 1:
+                return "I am 1 day old"
+            else:
+                return "I am " + birthday() + " days old"
+        elif trigger == "where were you born?":
+            return "In a computer with billions of transistors!"
+        elif trigger.strip() == "":
+            pass
+        else:
+            try:
+                return self.map[trigger]
+            except:
+                self.learning = trigger
+                return "Sorry, that is not in my database. Suggest me a good response: "
+        file.close()
 
 print(r"""
     _________________
@@ -93,4 +95,6 @@ print(r"""
 
 
 Jay = JayI()
-Jay.respond()
+print("Hi there. You can talk to me.")
+while True:
+    print(Jay.respond(input()) or "")
