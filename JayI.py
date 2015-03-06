@@ -38,6 +38,7 @@ class JayI:
             file1.write("hello:Hi\n")
             file1.write("hi:Hello\n")
             file1.close()
+        self.read_file()
 
 
     def read_file(self):
@@ -92,5 +93,4 @@ class JayI:
 
 
 Jay = JayI()
-Jay.read_file()
 Jay.respond()
