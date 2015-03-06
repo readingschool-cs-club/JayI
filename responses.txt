@@ -1,6 +1,4 @@
-hello:Hi
-hi:Hello
-aaa:aaa
-aaaa:a
-aaaaa:aaa
-a:a
+ls:ls
+ls -ltr:ls
+how:how
+no:a
