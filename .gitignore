@@ -1,20 +1,23 @@
-# Byte-compiled / optimized / DLL files
+# vim: fdm=marker
+
+# optimised python {{{
 __pycache__/
 *.py[cod]
+# }}}
 
-# C extensions
-*.so
-
-# Vim
+# Vim {{{
 [._]*.s[a-w][a-z]
 [._]s[a-w][a-z]
 *.un~
 Session.vim
 .netrwhist
 *~
+# }}}
 
-# Cloud9 IDE
+# c9.io {{{
 .c9
+# }}}
 
-# JayI
+# JayI {{{
 JayI.db
+# }}}
