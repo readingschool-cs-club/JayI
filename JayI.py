@@ -7,7 +7,7 @@ from datetime import datetime
 from sys import exit
 
 class JayI:
-  
+
     def __init__(self):
         self.filename = "responses.txt"
         self.map = {}
@@ -28,7 +28,7 @@ class JayI:
             parts = line.split(":", 1)
             self.map[parts[0]] = parts[1].rstrip("\n")
 
-    
+
     # find out my birthday
     def birthday(self):
         birthday = datetime.strptime("2015-02-13", "%Y-%m-%d")
@@ -75,20 +75,20 @@ class JayI:
 
 print("""
     _________________
-   |\________________\                                      
+   |\________________\
    \|_______    _____|   __________          ___     ___
-         | |   |        |\_________\        |\__\   |\__\         
-     ____| |   |        | | _____  |        | | |   | | |          
+         | |   |        |\_________\        |\__\   |\__\
+     ____| |   |        | | _____  |        | | |   | | |
     |\ ____|   |        | | |   |  |___     | | |___| | |
     | |        |        | | |___|  |___\    | | |___| | |
      \|________|         \|____________|     \|_______| |
-                                                    | | |  
+                                                    | | |
                                                     | | |
                                                     | | |
                                             ________| | |
                                            | \_______\| |
                                             \|__________|
- 
+
         Created and developed by readingschool-cs-club
                  Bringing Computers to Life
  """)
