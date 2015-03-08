@@ -38,12 +38,15 @@ class JayI:
     # the whole loop!
     def respond(self, trigger):
         file = open(self.filename, "a+")
+        learning = self.learning
+        self.learning = None
 
-        if self.learning:
-            if trigger.lower().strip():
-                self.map[self.learning] = trigger
-                file.write(self.learning + ":" + trigger + "\n")
-            self.learning = None
+        if not trigger.strip():
+            return
+
+        if learning:
+            self.map[learning] = trigger
+            file.write(learning + ":" + trigger + "\n")
             return
 
         trigger = trigger.lower()
