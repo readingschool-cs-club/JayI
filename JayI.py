@@ -60,10 +60,8 @@ class JayI:
             new_file.close()
         elif trigger == "how old are you?":
             birthday = self.birthday()
-            if birthday == 1:
-                return "I am 1 day old"
-            else:
-                return "I am %d days old" % birthday
+            day = "day" if birthday == 1 else "days"
+            return "I am %d %s old" % (birthday, day)
         elif trigger == "where were you born?":
             return "In a computer with billions of transistors!"
         else:
