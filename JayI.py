@@ -5,6 +5,7 @@
 
 from datetime import datetime
 from sys import exit
+import os
 
 class JayI:
 
@@ -13,15 +14,18 @@ class JayI:
         self.map = {}
         self.learning = None
         try:
-            file1 = open(self.filename, "r")
-            file1.close()
+            file = open(self.filename, "r+")
+            file.close()
         except IOError:
-            file1 = open(self.filename, "w+")
-            file1.write("hello:Hi\n")
-            file1.write("hi:Hello\n")
-            file1.close()
+            self.reset()
         self.read_file()
 
+    def reset(self):
+        os.remove(self.filename)
+        file = open(self.filename, "w+")
+        file.write("hello:Hi\n")
+        file.write("hi:Hello\n")
+        file.close()
 
     def read_file(self):
         for line in open(self.filename, "r"):
@@ -55,9 +59,8 @@ class JayI:
             exit()
         elif trigger == "delete all":
             file.close()
-            new_file = open(self.filename, "w")
-            new_file.write("")
-            new_file.close()
+            self.reset()
+            return
         elif trigger == "how old are you?":
             birthday = self.birthday()
             day = "day" if birthday == 1 else "days"
