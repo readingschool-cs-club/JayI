@@ -99,4 +99,5 @@ print(r"""
 Jay = JayI()
 print("Hi there. You can talk to me.")
 while True:
-    print(Jay.respond(input("> ")) or "")
+    result = Jay.respond(input("> "))
+    result is not None and print(result)
