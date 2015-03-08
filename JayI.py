@@ -33,7 +33,7 @@ class JayI:
     def birthday(self):
         birthday = datetime.strptime("2015-02-13", "%Y-%m-%d")
         age = (datetime.utcnow() - birthday).days
-        return abs(age)
+        return age
 
     # the whole loop!
     def respond(self, trigger):
@@ -52,9 +52,9 @@ class JayI:
             exit()
         elif trigger == "delete all":
             file.close()
-            file_stuff = open(self.filename, "w")
-            file_stuff.write("")
-            file_stuff.close()
+            new_file = open(self.filename, "w")
+            new_file.write("")
+            new_file.close()
         elif trigger == "how old are you?":
             birthday = self.birthday()
             if birthday == 1:
