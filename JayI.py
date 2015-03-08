@@ -40,7 +40,7 @@ class JayI:
         file = open(self.filename, "a+")
 
         if self.learning:
-            if not trigger.lower() == "no":
+            if trigger.lower().strip():
                 self.map[self.learning] = trigger
                 file.write(self.learning + ":" + trigger + "\n")
             self.learning = None
@@ -63,8 +63,6 @@ class JayI:
                 return "I am %d days old" % birthday
         elif trigger == "where were you born?":
             return "In a computer with billions of transistors!"
-        elif trigger.strip() == "":
-            pass
         else:
             try:
                 return self.map[trigger]
