@@ -5,7 +5,7 @@
 
 from datetime import datetime
 from sys import exit
-import os
+from os import remove
 
 class JayI:
 
@@ -21,7 +21,7 @@ class JayI:
         self.read_file()
 
     def reset(self):
-        os.remove(self.filename)
+        remove(self.filename)
         file = open(self.filename, "w+")
         file.write("hello:Hi\n")
         file.write("hi:Hello\n")
