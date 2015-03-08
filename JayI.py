@@ -28,10 +28,10 @@ class JayI:
             parts = line.split(":", 1)
             self.map[parts[0]] = parts[1].rstrip("\n")
 
-
+    @staticmethod
     # find out my birthday
-    def birthday(self):
-        birthday = datetime.strptime("2015-02-13", "%Y-%m-%d")
+    def birthday():
+        birthday = datetime.fromtimestamp(1423785600)  # 13/02/2015
         age = (datetime.utcnow() - birthday).days
         return age
 
@@ -60,7 +60,7 @@ class JayI:
             if birthday == 1:
                 return "I am 1 day old"
             else:
-                return "I am " + birthday() + " days old"
+                return "I am %d days old" % birthday
         elif trigger == "where were you born?":
             return "In a computer with billions of transistors!"
         elif trigger.strip() == "":
