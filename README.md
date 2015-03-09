@@ -10,11 +10,11 @@ JayI was created and developed by readingschool-cs-club.
 Please read the wiki for more information.
 Anyone who uses the programme must read and accept the terms and conditions.
 
-![What's taters precious?](http://stuarte.co/wp-content/uploads/2014/01/LOTR-Sam-Gamgee-says-potatoes.gif)
+![What's tater's precious?](http://stuarte.co/wp-content/uploads/2014/01/LOTR-Sam-Gamgee-says-potatoes.gif)
 
 What's tater's precious?
 
-Thought of an answer? Enter our [Competition](/readingschool-cs-club/competition) to be in with a chance to win two bags of special LOTR potatoes!
+Thought of an answer? Enter our [competition](/readingschool-cs-club/competition) to be in with a chance to win two bags of special LOTR potatoes!
 
 
 
