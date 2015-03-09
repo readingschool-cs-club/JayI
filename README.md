@@ -14,7 +14,7 @@ Anyone who uses the programme must read and accept the terms and conditions.
 
 What's tater's precious?
 
-Thought of an answer? Enter our [competition](/readingschool-cs-club/competition) to be in with a chance to win two bags of special LOTR potatoes!
+Thought of an answer? Enter our [competition](/readingschool-cs-club/JayI/Wiki) to be in with a chance to win two bags of special LOTR potatoes!
 
 
 
