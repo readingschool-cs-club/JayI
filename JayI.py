@@ -16,12 +16,13 @@ class JayI:
         try:
             file = open(self.filename, "r+")
             file.close()
-        except IOError:
+        except (IOError, FileNotFoundError):
             self.reset()
         self.read_file()
 
     def reset(self):
-        os.remove(self.filename)
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
         file = open(self.filename, "w+")
         file.write("hello:Hi\n")
         file.write("hi:Hello\n")
