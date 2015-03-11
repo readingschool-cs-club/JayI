@@ -12,7 +12,7 @@ Anyone who uses the programme must read and accept the terms and conditions.
 
 ![What's tater's precious?](http://stuarte.co/wp-content/uploads/2014/01/LOTR-Sam-Gamgee-says-potatoes.gif)
 
-What's tater's precious??
+What's tater's precious?
 
 Thought of an answer? Enter our [competition](../../wiki/Monthly-JayI-Competition) to be in with a chance to win two bags of special LOTR  (Lord of the Rings) potatoes!
 
