@@ -10,7 +10,7 @@ JayI was created and developed by readingschool-cs-club.
 Please read the wiki for more information.
 Anyone who uses the programme must read and accept the terms and conditions.
 
-![Boil-em, mash-em, stick-em-in-a-stew](http://stuarte.co/wp-content/uploads/2014/01/LOTR-Sam-Gamgee-says-potatoes.gif)
+![Boil-em, Mash-em, Stick-em in a stew](http://stuarte.co/wp-content/uploads/2014/01/LOTR-Sam-Gamgee-says-potatoes.gif)
 
 What's tater's precious?
 
