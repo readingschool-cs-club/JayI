@@ -66,8 +66,6 @@ class JayI:
             birthday = self.birthday()
             day = "day" if birthday == 1 else "days"
             return "I am %d %s old" % (birthday, day)
-        elif trigger == "where were you born?":
-            return "In a computer with billions of transistors!"
         else:
             try:
                 return self.map[trigger]
