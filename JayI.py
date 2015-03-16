@@ -5,8 +5,11 @@
 
 from datetime import datetime
 from sys import exit
-from os import remove
+import os
 
+
+
+# Main Class And Core For JayI!
 class JayI:
 
     def __init__(self):
@@ -16,12 +19,13 @@ class JayI:
         try:
             file = open(self.filename, "r+")
             file.close()
-        except IOError:
+        except (IOError, FileNotFoundError):
             self.reset()
         self.read_file()
 
     def reset(self):
-        remove(self.filename)
+        if os.path.exists(self.filename):
+            os.remove(self.filename)
         file = open(self.filename, "w+")
         file.write("hello:Hi\n")
         file.write("hi:Hello\n")
@@ -52,7 +56,7 @@ class JayI:
             self.map[learning] = trigger
             file.write(learning + ":" + trigger + "\n")
             return
-
+#Trigger response to user......
         trigger = trigger.lower()
         if trigger == "bye":
             print("Bye, see you soon!")
@@ -65,8 +69,6 @@ class JayI:
             birthday = self.birthday()
             day = "day" if birthday == 1 else "days"
             return "I am %d %s old" % (birthday, day)
-        elif trigger == "where were you born?":
-            return "In a computer with billions of transistors!"
         else:
             try:
                 return self.map[trigger]
