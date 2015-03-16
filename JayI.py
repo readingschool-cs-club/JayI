@@ -8,8 +8,8 @@ from sys import exit
 import os
 
 
-#
 
+# Main Class And Core For JayI!
 class JayI:
 
     def __init__(self):
