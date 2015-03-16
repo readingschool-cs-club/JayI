@@ -7,6 +7,7 @@ from datetime import datetime
 from sys import exit
 import os
 
+import string, re
 
 # the core
 class JayI:
@@ -54,8 +55,9 @@ class JayI:
             self.map[learning] = trigger
             file.write(learning + ":" + trigger + "\n")
             return
-        # Trigger response to user......
-        trigger = trigger.lower()
+       
+        # squeeze spacing, make it lowercase and strip out punctuation and excess spacing
+        trigger = re.sub(r"\s\s+", " ", trigger).lower().translate(dict.fromkeys(map(ord, string.punctuation))).strip()
 
         if trigger in self.map:
             return self.map[trigger]
@@ -67,10 +69,10 @@ class JayI:
             file.close()
             self.reset()
             return
-        elif trigger == "where were you born?":
+        elif trigger == "where were you born":
             self.learning = trigger
             return "I'm not sure. Can you tell me?"
-        elif trigger == "how old are you?":
+        elif trigger == "how old are you":
             birthday = self.birthday()
             day = "day" if birthday == 1 else "days"
             return "I am %d %s old" % (birthday, day)
