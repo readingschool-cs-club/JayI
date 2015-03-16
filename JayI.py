@@ -67,6 +67,9 @@ class JayI:
             file.close()
             self.reset()
             return
+        elif trigger == "where were you born?":
+            self.learning = trigger
+            return "I'm not sure. Can you tell me?"
         elif trigger == "how old are you?":
             birthday = self.birthday()
             day = "day" if birthday == 1 else "days"
