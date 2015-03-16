@@ -56,6 +56,10 @@ class JayI:
             return
         # Trigger response to user......
         trigger = trigger.lower()
+
+        if trigger in self.map:
+            return self.map[trigger]
+
         if trigger == "bye":
             print("Bye, see you soon!")
             exit()
@@ -68,11 +72,8 @@ class JayI:
             day = "day" if birthday == 1 else "days"
             return "I am %d %s old" % (birthday, day)
         else:
-            try:
-                return self.map[trigger]
-            except:
-                self.learning = trigger
-                return "Sorry, that is not in my database. Suggest me a good response: "
+            self.learning = trigger
+            return "Sorry, that is not in my database. Suggest me a good response: "
         file.close()
 
 print(r"""
