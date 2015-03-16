@@ -8,8 +8,7 @@ from sys import exit
 import os
 
 
-
-# Main Class And Core For JayI!
+# the core
 class JayI:
 
     def __init__(self):
@@ -17,8 +16,7 @@ class JayI:
         self.map = {}
         self.learning = None
         try:
-            file = open(self.filename, "r+")
-            file.close()
+            open(self.filename, "r+").close()
         except (IOError, FileNotFoundError):
             self.reset()
         self.read_file()
@@ -56,7 +54,7 @@ class JayI:
             self.map[learning] = trigger
             file.write(learning + ":" + trigger + "\n")
             return
-#Trigger response to user......
+        # Trigger response to user......
         trigger = trigger.lower()
         if trigger == "bye":
             print("Bye, see you soon!")
