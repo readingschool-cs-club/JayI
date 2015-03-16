@@ -56,7 +56,7 @@ class JayI:
             self.map[learning] = trigger
             file.write(learning + ":" + trigger + "\n")
             return
-#Trigger response to user...
+#Trigger response to user......
         trigger = trigger.lower()
         if trigger == "bye":
             print("Bye, see you soon!")
