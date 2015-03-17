@@ -15,13 +15,12 @@ LIKE = "like "
 class JayI:
     def __init__(self):
         self.filename = "responses.txt"
-        self.map = {}
         self.learning = None
         try:
             open(self.filename, "r+").close()
+            self.read_file()
         except (IOError, FileNotFoundError):
             self.reset()
-        self.read_file()
 
     def reset(self):
         if os.path.exists(self.filename):
@@ -30,8 +29,10 @@ class JayI:
         file.write("hello:Hi\n")
         file.write("hi:Hello\n")
         file.close()
+        self.read_file()
 
     def read_file(self):
+        self.map = {}
         for line in open(self.filename, "r"):
             parts = line.split(":", 1)
             if parts[1].startswith(LIKE):
