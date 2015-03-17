@@ -9,9 +9,10 @@ import os
 
 import string, re
 
+LIKE = "like "
+
 # the core
 class JayI:
-
     def __init__(self):
         self.filename = "responses.txt"
         self.map = {}
@@ -33,7 +34,21 @@ class JayI:
     def read_file(self):
         for line in open(self.filename, "r"):
             parts = line.split(":", 1)
-            self.map[parts[0]] = parts[1].rstrip("\n")
+            if parts[1].startswith(LIKE):
+                self.map[parts[0]] = self.link(parts[1][len(LIKE):])
+            else:
+                self.map[parts[0]] = parts[1].rstrip("\n")
+
+    @staticmethod
+    def flatten(trigger):
+        # squeeze spacing, make it lowercase and strip out punctuation and excess spacing
+        return re.sub(r"\s\s+", " ", trigger).lower().translate(dict.fromkeys(map(ord, string.punctuation))).strip()
+
+    def link(self, trigger):
+        trigger = self.flatten(trigger)
+        def linker():
+            return self.respond(trigger)
+        return linker
 
     @staticmethod
     # find out my birthday
@@ -52,15 +67,21 @@ class JayI:
             return
 
         if learning:
-            self.map[learning] = trigger
+            if trigger.startswith(LIKE):
+                self.map[learning] = self.link(trigger[len(LIKE):])
+            else:
+                self.map[learning] = trigger
             file.write(learning + ":" + trigger + "\n")
             return
-       
-        # squeeze spacing, make it lowercase and strip out punctuation and excess spacing
-        trigger = re.sub(r"\s\s+", " ", trigger).lower().translate(dict.fromkeys(map(ord, string.punctuation))).strip()
+      
+        trigger = self.flatten(trigger)
 
         if trigger in self.map:
-            return self.map[trigger]
+            learnt = self.map[trigger]
+            try:
+                return learnt()
+            except TypeError:
+                return learnt
 
         if trigger == "bye":
             print("Bye, see you soon!")
@@ -72,7 +93,7 @@ class JayI:
         elif trigger == "where were you born":
             self.learning = trigger
             return "I'm not sure. Can you tell me?"
-        elif trigger == "how old are you":
+        elif trigger in ["how old are you", "when were you born"]:
             birthday = self.birthday()
             day = "day" if birthday == 1 else "days"
             return "I am %d %s old" % (birthday, day)
