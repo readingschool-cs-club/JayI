@@ -103,30 +103,31 @@ class JayI:
             return "Sorry, that is not in my database. Suggest me a good response: "
         file.close()
 
-print(r"""
-    _________________
-   |\________________\
-   \|_______    _____|   __________          ___     ___
-         | |   |        |\_________\        |\__\   |\__\
-     ____| |   |        | | _____  |        | | |   | | |
-    |\ ____|   |        | | |   |  |___     | | |___| | |
-    | |        |        | | |___|  |___\    | | |___| | |
-     \|________|         \|____________|     \|_______| |
-                                                    | | |
-                                                    | | |
-                                                    | | |
-                                            ________| | |
-                                           | \_______\| |
-                                            \|__________|
-
-        Created and developed by readingschool-cs-club
-                 Bringing Computers to Life
- """)
-
-
-Jay = JayI()
-print("Hi there. You can talk to me.")
-while True:
-    r = Jay.respond(input("> "))
-    r and print(r)
+if __name__ == "__main__":
+    print(r"""
+        _________________
+       |\________________\
+       \|_______    _____|   __________          ___     ___
+             | |   |        |\_________\        |\__\   |\__\
+         ____| |   |        | | _____  |        | | |   | | |
+        |\ ____|   |        | | |   |  |___     | | |___| | |
+        | |        |        | | |___|  |___\    | | |___| | |
+         \|________|         \|____________|     \|_______| |
+                                                        | | |
+                                                        | | |
+                                                        | | |
+                                                ________| | |
+                                               | \_______\| |
+                                                \|__________|
+    
+            Created and developed by readingschool-cs-club
+                     Bringing Computers to Life
+     """)
+    
+    
+    Jay = JayI()
+    print("Hi there. You can talk to me.")
+    while True:
+        r = Jay.respond(input("> "))
+        r and print(r)
 
