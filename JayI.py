@@ -13,8 +13,8 @@ LIKE = "like "
 
 # the core
 class JayI:
-    def __init__(self):
-        self.filename = "responses.txt"
+    def __init__(self, filename="responses.txt"):
+        self.filename = filename
         self.learning = None
         try:
             open(self.filename, "r+").close()
