@@ -15,7 +15,7 @@ KEYS = ["trigger", "answer"]
 
 # the core
 class JayI:
-    def __init__(self, filename="responses.txt"):
+    def __init__(self, filename="responses.csv"):
         self.filename = filename
         self.learning = None
         self.map = {}
