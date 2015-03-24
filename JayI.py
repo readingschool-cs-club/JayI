@@ -40,12 +40,12 @@ class JayI:
 
     def init_file(self):
         with open(self.filename, "w+") as file:
-            writer = csv.DictWriter(file, fieldnames=KEYS)
+            writer = csv.DictWriter(file, fieldnames=KEYS, quoting=csv.QUOTE_ALL)
             writer.writeheader()
 
     def write_file(self, key, value):
         with open(self.filename, "a+") as file:
-            writer = csv.DictWriter(file, fieldnames=KEYS)
+            writer = csv.DictWriter(file, fieldnames=KEYS, quoting=csv.QUOTE_ALL)
             writer.writerow({ KEYS[0]: key, KEYS[1]: value })
 
     def parse(self, value):
