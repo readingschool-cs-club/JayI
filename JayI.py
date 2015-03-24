@@ -43,6 +43,7 @@ class JayI:
     @staticmethod
     def flatten(trigger):
         # squeeze spacing, make it lowercase and strip out punctuation and excess spacing
+        trigger = re.sub(r"\s", " ", trigger)
         return re.sub(r"\s\s+", " ", trigger).lower().translate(dict.fromkeys(map(ord, string.punctuation))).strip()
 
     def link(self, trigger):
