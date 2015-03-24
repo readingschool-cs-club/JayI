@@ -32,9 +32,12 @@ class JayI:
         self.read_file()
 
     def learn(self, key, value):
-        file = open(self.filename, "a+")
         key = self.flatten(key)
         self.map[key] = self.parse(value)
+        self.write_file(key, value)
+
+    def write_file(self, key, value):
+        file = open(self.filename, "a+")
         file.write(key + ":" + value + "\n")
         file.close()
 
@@ -94,7 +97,6 @@ class JayI:
             print("Bye, see you soon!")
             exit()
         elif trigger == "delete all":
-            file.close()
             self.reset()
             return
         elif trigger == "where were you born":
@@ -107,7 +109,6 @@ class JayI:
         else:
             self.learning = trigger
             return "Sorry, that is not in my database. Suggest me a good response: "
-        file.close()
 
 if __name__ == "__main__":
     print(r"""
