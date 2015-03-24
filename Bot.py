@@ -1,4 +1,4 @@
-from .JayI import JayI
+from JayI import JayI
 from base64 import urlsafe_b64encode as b64encode
 
 class Bot(object):

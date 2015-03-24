@@ -1,4 +1,4 @@
-from .Bot import Bot
+from Bot import Bot
 
 import requests
 import json
