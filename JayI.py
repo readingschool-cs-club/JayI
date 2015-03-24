@@ -15,9 +15,10 @@ KEYS = ["trigger", "answer"]
 
 # the core
 class JayI:
-    def __init__(self, filename="responses.csv"):
+    def __init__(self, filename="responses.csv", interactive=False):
         self.filename = filename
         self.learning = None
+        self.interactive = interactive
         self.map = {}
         try:
             open(self.filename, "r+").close()
@@ -104,8 +105,11 @@ class JayI:
                 return learnt
 
         if trigger == "bye":
-            print("Bye, see you soon!")
-            exit()
+            msg = "Bye, see you soon!"
+            if self.interactive:
+                print(msg)
+                exit()
+            return msg
         elif trigger == "delete all":
             self.reset()
             return
@@ -142,7 +146,7 @@ if __name__ == "__main__":
      """)
     
     
-    Jay = JayI()
+    Jay = JayI(interactive=True)
     print("Hi there. You can talk to me.")
     while True:
         r = Jay.respond(input("> "))
