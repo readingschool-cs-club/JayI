@@ -16,6 +16,7 @@ class JayI:
     def __init__(self, filename="responses.txt"):
         self.filename = filename
         self.learning = None
+        self.map = {}
         try:
             open(self.filename, "r+").close()
             self.read_file()
@@ -25,20 +26,29 @@ class JayI:
     def reset(self):
         if os.path.exists(self.filename):
             os.remove(self.filename)
-        file = open(self.filename, "w+")
-        file.write("hello:Hi\n")
-        file.write("hi:Hello\n")
-        file.close()
+        open(self.filename, "w+").close()
+        self.learn("Hello", "Hi")
+        self.learn("Hi", "Hello")
         self.read_file()
+
+    def learn(self, key, value):
+        file = open(self.filename, "a+")
+        key = self.flatten(key)
+        self.map[key] = self.parse(value)
+        file.write(key + ":" + value + "\n")
+        file.close()
+
+    def parse(self, value):
+        flattened = self.flatten(value)
+        if flattened.startswith(LIKE):
+            return self.link(flattened[len(LIKE):])
+        return value.strip()
 
     def read_file(self):
         self.map = {}
         for line in open(self.filename, "r"):
             parts = line.split(":", 1)
-            if parts[1].startswith(LIKE):
-                self.map[parts[0]] = self.link(parts[1][len(LIKE):])
-            else:
-                self.map[parts[0]] = parts[1].rstrip("\n")
+            self.map[parts[0]] = self.parse(parts[1])
 
     @staticmethod
     def flatten(trigger):
@@ -61,7 +71,6 @@ class JayI:
 
     # the whole loop!
     def respond(self, trigger):
-        file = open(self.filename, "a+")
         learning = self.learning
         self.learning = None
 
@@ -69,11 +78,7 @@ class JayI:
             return
 
         if learning:
-            if trigger.startswith(LIKE):
-                self.map[learning] = self.link(trigger[len(LIKE):])
-            else:
-                self.map[learning] = trigger
-            file.write(learning + ":" + trigger + "\n")
+            self.learn(learning, trigger)
             return
       
         trigger = self.flatten(trigger)
