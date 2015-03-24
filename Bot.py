@@ -1,7 +1,7 @@
 from JayI import JayI
 from base64 import urlsafe_b64encode as b64encode
 
-class Bot:
+class Bot(object):
     def __init__(self):
         self.instances = {}
 
