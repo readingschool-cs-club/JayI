@@ -8,8 +8,10 @@ from sys import exit
 import os
 
 import string, re
+import csv
 
 LIKE = "like "
+KEYS = ["trigger", "answer"]
 
 # the core
 class JayI:
@@ -26,7 +28,7 @@ class JayI:
     def reset(self):
         if os.path.exists(self.filename):
             os.remove(self.filename)
-        open(self.filename, "w+").close()
+        self.init_file()
         self.learn("Hello", "Hi")
         self.learn("Hi", "Hello")
         self.read_file()
@@ -36,10 +38,15 @@ class JayI:
         self.map[key] = self.parse(value)
         self.write_file(key, value)
 
+    def init_file(self):
+        with open(self.filename, "w+") as file:
+            writer = csv.DictWriter(file, fieldnames=KEYS)
+            writer.writeheader()
+
     def write_file(self, key, value):
-        file = open(self.filename, "a+")
-        file.write(key + ":" + value + "\n")
-        file.close()
+        with open(self.filename, "a+") as file:
+            writer = csv.DictWriter(file, fieldnames=KEYS)
+            writer.writerow({ KEYS[0]: key, KEYS[1]: value })
 
     def parse(self, value):
         flattened = self.flatten(value)
@@ -49,9 +56,12 @@ class JayI:
 
     def read_file(self):
         self.map = {}
-        for line in open(self.filename, "r"):
-            parts = line.split(":", 1)
-            self.map[parts[0]] = self.parse(parts[1])
+        with open(self.filename, "r") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                key = row[KEYS[0]]
+                value = row[KEYS[1]]
+                self.map[key] = self.parse(value)
 
     @staticmethod
     def flatten(trigger):
