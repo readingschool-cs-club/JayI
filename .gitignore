@@ -24,5 +24,11 @@ JayI.iml
 # }}}
 
 # JayI {{{
+
+# legacy
 responses.txt
+
+# new
+*.csv
+
 # }}}

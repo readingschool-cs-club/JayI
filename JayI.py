@@ -8,14 +8,17 @@ from sys import exit
 import os
 
 import string, re
+import csv
 
 LIKE = "like "
+KEYS = ["trigger", "answer"]
 
 # the core
 class JayI:
-    def __init__(self):
-        self.filename = "responses.txt"
+    def __init__(self, filename="responses.csv"):
+        self.filename = filename
         self.learning = None
+        self.map = {}
         try:
             open(self.filename, "r+").close()
             self.read_file()
@@ -25,20 +28,40 @@ class JayI:
     def reset(self):
         if os.path.exists(self.filename):
             os.remove(self.filename)
-        file = open(self.filename, "w+")
-        file.write("hello:Hi\n")
-        file.write("hi:Hello\n")
-        file.close()
+        self.init_file()
+        self.learn("Hello", "Hi")
+        self.learn("Hi", "Hello")
         self.read_file()
+
+    def learn(self, key, value):
+        key = self.flatten(key)
+        self.map[key] = self.parse(value)
+        self.write_file(key, value)
+
+    def init_file(self):
+        with open(self.filename, "w+") as file:
+            writer = csv.DictWriter(file, fieldnames=KEYS, quoting=csv.QUOTE_ALL)
+            writer.writeheader()
+
+    def write_file(self, key, value):
+        with open(self.filename, "a+") as file:
+            writer = csv.DictWriter(file, fieldnames=KEYS, quoting=csv.QUOTE_ALL)
+            writer.writerow({ KEYS[0]: key, KEYS[1]: value })
+
+    def parse(self, value):
+        flattened = self.flatten(value)
+        if flattened.startswith(LIKE):
+            return self.link(flattened[len(LIKE):])
+        return value.strip()
 
     def read_file(self):
         self.map = {}
-        for line in open(self.filename, "r"):
-            parts = line.split(":", 1)
-            if parts[1].startswith(LIKE):
-                self.map[parts[0]] = self.link(parts[1][len(LIKE):])
-            else:
-                self.map[parts[0]] = parts[1].rstrip("\n")
+        with open(self.filename, "r") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                key = row[KEYS[0]]
+                value = row[KEYS[1]]
+                self.map[key] = self.parse(value)
 
     @staticmethod
     def flatten(trigger):
@@ -61,7 +84,6 @@ class JayI:
 
     # the whole loop!
     def respond(self, trigger):
-        file = open(self.filename, "a+")
         learning = self.learning
         self.learning = None
 
@@ -69,11 +91,7 @@ class JayI:
             return
 
         if learning:
-            if trigger.startswith(LIKE):
-                self.map[learning] = self.link(trigger[len(LIKE):])
-            else:
-                self.map[learning] = trigger
-            file.write(learning + ":" + trigger + "\n")
+            self.learn(learning, trigger)
             return
       
         trigger = self.flatten(trigger)
@@ -89,7 +107,6 @@ class JayI:
             print("Bye, see you soon!")
             exit()
         elif trigger == "delete all":
-            file.close()
             self.reset()
             return
         elif trigger == "where were you born":
@@ -102,7 +119,6 @@ class JayI:
         else:
             self.learning = trigger
             return "Sorry, that is not in my database. Suggest me a good response: "
-        file.close()
 
 if __name__ == "__main__":
     print(r"""
