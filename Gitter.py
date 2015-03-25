@@ -52,7 +52,7 @@ class GitterBot(Bot):
             return
 
         mention = "@" + mention
-        trigger = re.sub(r"\s*%s\s*" % re.escape(mention), " ", data["text"]).strip()
+        trigger = re.sub(r"\s+%s\s+" % re.escape(mention), " ", " %s " % data["text"]).strip()
 
         self.write(data["fromUser"], trigger, room)
 
