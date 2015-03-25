@@ -3,17 +3,26 @@ from Bot import Bot
 import requests
 import json
 import re
+from threading import Thread
+import functools
+import queue
 
 class GitterBot(Bot):
     def __init__(self, token):
         super().__init__()
+        
+        self.queue = queue.Queue()
         self.token = token
         self.headers = {
             "Authorization": "Bearer %s" % self.token,
         }
 
         self.userId = self.get_userId()
-        self.connect(self.get_rooms()[0])
+        for room in self.get_rooms():
+            Thread(target=self.connect, args=(room,)).start()
+
+        while True:
+            self.queue.get()()
 
     def get_rooms(self):
         r = requests.get("https://api.gitter.im/v1/rooms", headers=self.headers)
@@ -30,7 +39,7 @@ class GitterBot(Bot):
         for line in r.iter_lines(chunk_size=1):
             line = line.decode("utf-8")
             if line.strip():
-                self.load(json.loads(line), room)
+                self.queue.put(functools.partial(self.load, json.loads(line), room))
 
     def load(self, data, room):
         mention = None
