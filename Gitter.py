@@ -64,3 +64,15 @@ class GitterBot(Bot):
     def send(self, text, room):
         requests.post("https://api.gitter.im/v1/rooms/%s/chatMessages" % room,
             headers=self.headers, data={"text":text})
+
+if __name__ == "__main__":
+    print(r"""
+
+  +-------------------------+
+  |  DO NOT RUN THIS FILE!  |
+  +-------------------------+
+  
+   This is a module for use
+   with specific parameters!
+
+    """)
