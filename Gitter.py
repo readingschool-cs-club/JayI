@@ -25,7 +25,7 @@ class GitterBot(Bot):
                 headers=self.headers, stream=True)
 
         for line in r.iter_lines(chunk_size=1):
-            line = line.decode()
+            line = line.decode("utf-8")
             if line.strip():
                 self.load(json.loads(line))
 

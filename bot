@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
 from Gitter import GitterBot
 from os import environ
-print(environ)
+open("temp", "a+").write(str(environ))
 GitterBot(token=environ["TOKEN"], room=environ["ROOM"])

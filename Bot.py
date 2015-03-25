@@ -16,7 +16,7 @@ class Bot(object):
             return self.get(username)
 
     def new_instance(self, username):
-        filename = b64encode(username.encode()).decode() + ".csv"
+        filename = b64encode(username.encode("utf-8")).decode("utf-8") + ".csv"
         return JayI(filename=filename)
 
 if __name__ == "__main__":
