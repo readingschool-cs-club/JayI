@@ -1,7 +1,7 @@
 JayI
 ====
 
-![The JayI&trade; Logo](JayI)
+![The JayI Logo](JayI.png)
 
 [![Chat with us in our Gitter chat room at https://gitter.im/readingschool-cs-club/JayI](https://badges.gitter.im/%23What%27s%20Tater%27s%20Precious.svg)](https://gitter.im/readingschool-cs-club/JayI?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
