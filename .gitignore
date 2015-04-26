@@ -18,17 +18,7 @@ Session.vim
 .c9
 # }}}
 
-# IntelliJ IDEA {{{
-.idea
-JayI.iml
-# }}}
-
 # JayI {{{
-
-# legacy
 responses.txt
-
-# new
 *.csv
-
 # }}}
