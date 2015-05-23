@@ -79,7 +79,7 @@ class JayI:
     @staticmethod
     # find out my birthday
     def birthday():
-        birthday = datetime.fromtimestamp(1423785600)  # 13/02/2015
+        birthday = datetime.fromtimestamp(1430611200)  # 13/02/2015
         age = (datetime.utcnow() - birthday).days
         return age
 
