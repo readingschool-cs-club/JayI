@@ -81,7 +81,7 @@ class JayI:
     def birthday():
         birthday = datetime.fromtimestamp(1423785600)  # 13/02/2015
         age = (datetime.utcnow() - birthday).days
-        return 21
+        return age
 
     # the whole loop!
     def respond(self, trigger):
