@@ -63,7 +63,7 @@ class GitterBot(Bot):
 
     def send(self, text, room):
         requests.post("https://api.gitter.im/v1/rooms/%s/chatMessages" % room,
-            headers=self.headers, data={"text":text})
+                headers=self.headers, data={"text": text, "status": True})
 
 if __name__ == "__main__":
     print(r"""
