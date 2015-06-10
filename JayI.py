@@ -2,6 +2,8 @@
 #
 # JayI main executable.
 #
+# Made by reading-school-cs-club!
+#
 
 from datetime import datetime
 from sys import exit
