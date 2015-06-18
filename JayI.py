@@ -67,10 +67,11 @@ class JayI:
                 self.map[key] = self.parse(value)
 
     @staticmethod
-    """Simplify a word, stripping spacing & other characters."""
-    def flatten(word):
-        # squeeze spacing, make it lowercase and strip out punctuation and excess spacing
-        flattened = re.sub(r"\s", " ", word)
+    def flatten(phrase):
+        """Simplify a phrase, stripping spacing & other characters."""
+        # replace all spacing (tabs, newlines, etc.) with space
+        flattened = re.sub(r"\s", " ", phrase)
+        # squeeze spaces, make it lowercase and strip out punctuation and excess spacing
         return re.sub(r"\s\s+", " ", flattened).lower().translate(dict.fromkeys(map(ord, string.punctuation))).strip()
 
     def link(self, trigger):
